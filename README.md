@@ -1,5 +1,7 @@
 # qrcode
 
+![Test](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
+
 Simple command line utility to generate a QR code PNG image from a URL.
 
 Thin wrapper around [`skip2/go-qrcode`](https://github.com/skip2/go-qrcode).
