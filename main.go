@@ -6,17 +6,20 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"net/url"
 	"os"
 
 	"github.com/skip2/go-qrcode"
 )
 
 func main() {
+	log.SetFlags(0)
 	f := parseFlags()
+	checkURL(f.url)
 	png, err := qrcode.Encode(f.url, qrcode.RecoveryLevel(f.recoveryLevel), int(f.size))
-	exitOnErr(err)
+	exitOnErr(err, "encode URL")
 	_, err = os.Stdout.Write(png)
-	exitOnErr(err)
+	exitOnErr(err, "write image to output")
 }
 
 type Flags struct {
@@ -73,8 +76,16 @@ func (r recoveryLevel) String() string {
 	return s
 }
 
-func exitOnErr(err error) {
+// checkURL logs a warning if val does not look like a value HTTP request URI.
+func checkURL(val string) {
+	_, err := url.ParseRequestURI(val)
 	if err != nil {
-		log.Fatal(err)
+		log.Printf("warning: %q is not a valid URL: %s", val, err)
+	}
+}
+
+func exitOnErr(err error, message string) {
+	if err != nil {
+		log.Fatal(fmt.Errorf("%s: %w", message, err))
 	}
 }
