@@ -20,13 +20,17 @@ qrcode -url "https://example.com" > output.png
 
 The default image is `1024x1024` pixels. Use `-size` to change it.
 
+Use `-level` to set the error detection / recovery level. Valid values are `low`, `medium`, `high` and `highest`. The default value is `low`.
+
 ```
 qrcode -h
 Usage of ./qrcode:
+  -level value
+        recovery level: low|medium|high|highest
   -size uint
-    	width/height in pixels (default 1024)
+        width/height in pixels (default 1024)
   -url string
-    	the url to encode
+        the url to encode
 ```
 
 ## Errata
