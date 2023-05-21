@@ -8,6 +8,10 @@ Thin wrapper around [`skip2/go-qrcode`](https://github.com/skip2/go-qrcode).
 
 ## Installation
 
+Install from the latest [release](https://github.com/olliebun/qrcode/releases). Please open an [issue](https://github.com/olliebun/qrcode/issues) if your platform is not supported.
+
+Or install with Go:
+
 ```sh
 go install github.com/olliebun/qrcode
 ```
