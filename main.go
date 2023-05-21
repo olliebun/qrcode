@@ -1,3 +1,5 @@
+// qrcode is a utility to generate a QR code image from a URL.
+// Run qrcode -h to see usage.
 package main
 
 import (
