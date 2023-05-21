@@ -1,7 +1,10 @@
 package main
 
-import "testing"
-import "github.com/google/go-cmp/cmp"
+import (
+	"testing"
+
+	"github.com/google/go-cmp/cmp"
+)
 
 func TestRecoveryLevel_Set(t *testing.T) {
 	assertLevel := func(t *testing.T, want recoveryLevel, s string) {
