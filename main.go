@@ -10,7 +10,6 @@ import (
 
 func main() {
 	opts := parseFlags()
-	var png []byte
 	png, err := qrcode.Encode(opts.url, qrcode.Low, int(opts.size))
 	exitOnErr(err)
 	_, err = os.Stdout.Write(png)
