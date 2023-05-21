@@ -13,7 +13,8 @@ func main() {
 	var png []byte
 	png, err := qrcode.Encode(opts.url, qrcode.Low, int(opts.size))
 	exitOnErr(err)
-	os.Stdout.Write(png)
+	_, err = os.Stdout.Write(png)
+	exitOnErr(err)
 }
 
 type Opts struct {
