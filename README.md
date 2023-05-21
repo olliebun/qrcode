@@ -36,4 +36,3 @@ Usage of ./qrcode:
 ## Errata
 
 - `-url` can really be any string
-- error recovery level is hard-coded to 7%
